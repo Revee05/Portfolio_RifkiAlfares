@@ -1,0 +1,52 @@
+<section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden min-h-screen flex items-center">
+  <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-10 filter blur-3xl"></div>
+  <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-10 filter blur-3xl"></div>
+
+  <div class="flex flex-col md:flex-row items-center justify-between w-full">
+    <div class="md:w-1/2 mb-10 md:mb-0">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 orbitron neon-text">
+        <span class="text-cyan-400">RIFKI</span> ALFARES
+      </h1>
+      <h2 class="text-xl md:text-2xl mb-6 text-cyan-400 orbitron">
+        PHYSICS OF ELECTRONICS & INSTRUMENTATION
+      </h2>
+      <p class="text-lg mb-8 max-w-lg">
+        IoT enthusiast & developer passionate about creating efficient
+        solutions through technology.
+      </p>
+      <div class="flex space-x-4">
+        <a href="#contact" class="px-6 py-3 bg-cyan-400 text-black font-semibold rounded-md hover:bg-cyan-300 transition-colors pulse">
+          Contact Me
+        </a>
+        <a href="#projects" class="px-6 py-3 neon-border font-semibold rounded-md hover:bg-gray-800 transition-colors">
+          View Projects
+        </a>
+      </div>
+    </div>
+    <div class="md:w-1/2 flex justify-center relative">
+      <div class="flip-card w-80 h-80 floating" id="flip-card">
+        <div class="flip-card-inner">
+          <!-- Front Side -->
+          <div class="flip-card-front flex flex-col items-center justify-center p-6">
+            <div class="w-24 h-24 bg-cyan-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <i class="fas fa-atom text-4xl text-black"></i>
+            </div>
+            <p class="orbitron text-cyan-400 text-2xl mb-4">IoT Developer</p>
+            <p class="text-lg text-center">"Everything must be efficient"</p>
+          </div>
+          <!-- Back Side -->
+          <div class="flip-card-back">
+            <img src="public/foto_1.jpeg" alt="IoT Developer Photo" />
+          </div>
+        </div>
+      </div>
+      <script>
+        // Add tap/click event listener for mobile flip-card
+        const flipCard = document.getElementById('flip-card');
+        flipCard.addEventListener('click', () => {
+          flipCard.querySelector('.flip-card-inner').classList.toggle('flipped');
+        });
+      </script>
+    </div>
+  </div>
+</section>
