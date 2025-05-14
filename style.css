@@ -57,6 +57,11 @@ h1, h2, h3, h4, .orbitron {
     transform: rotateY(180deg);
 }
 
+/* Flip when .flipped class is added (for mobile tap) */
+.flip-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
 .flip-card-front, 
 .flip-card-back {
     position: absolute;
