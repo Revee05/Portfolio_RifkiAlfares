@@ -1,502 +1,770 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rifki Alfares | Futuristic Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="min-h-screen">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="min-h-screen">
     <!-- 3D Background Elements -->
     <div id="threejs-container" class="threejs-container"></div>
-    
+
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#" class="text-xl font-bold neon-text text-primary-500">
-                        <span class="text-cyan-400">R</span>ALFAREZ
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-white hover:text-cyan-400 transition-colors glow-on-hover">About</a>
-                    <a href="#skills" class="text-white hover:text-cyan-400 transition-colors glow-on-hover">Skills</a>
-                    <a href="#experience" class="text-white hover:text-cyan-400 transition-colors glow-on-hover">Experience</a>
-                    <a href="#projects" class="text-white hover:text-cyan-400 transition-colors glow-on-hover">Projects</a>
-                    <a href="#contact" class="text-white hover:text-cyan-400 transition-colors glow-on-hover">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                <button class="mobile-menu-button" title="Toggle mobile menu">
-                    <i class="fas fa-bars text-white text-xl"></i>
-                </button>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="#" class="text-xl font-bold neon-text text-primary-500">
+              <span class="text-cyan-400">R</span>ALFAREZ
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#about"
+              class="text-white hover:text-cyan-400 transition-colors glow-on-hover"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="text-white hover:text-cyan-400 transition-colors glow-on-hover"
+              >Skills</a
+            >
+            <a
+              href="#experience"
+              class="text-white hover:text-cyan-400 transition-colors glow-on-hover"
+              >Experience</a
+            >
+            <a
+              href="#projects"
+              class="text-white hover:text-cyan-400 transition-colors glow-on-hover"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-white hover:text-cyan-400 transition-colors glow-on-hover"
+              >Contact</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button class="mobile-menu-button" title="Toggle mobile menu">
+              <i class="fas fa-bars text-white text-xl"></i>
+            </button>
+          </div>
         </div>
-        
-        <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden bg-black bg-opacity-90">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#about" class="block px-3 py-2 text-white hover:text-cyan-400" title="About">About</a>
-                    <a href="#skills" class="block px-3 py-2 text-white hover:text-cyan-400" title="Skills">Skills</a>
-                    <a href="#experience" class="block px-3 py-2 text-white hover:text-cyan-400" title="Experience">Experience</a>
-                    <a href="#projects" class="block px-3 py-2 text-white hover:text-cyan-400" title="Projects">Projects</a>
-                    <a href="#contact" class="block px-3 py-2 text-white hover:text-cyan-400" title="Contact">Contact</a>
-            </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="mobile-menu hidden md:hidden bg-black bg-opacity-90">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#about"
+            class="block px-3 py-2 text-white hover:text-cyan-400"
+            title="About"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="block px-3 py-2 text-white hover:text-cyan-400"
+            title="Skills"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="block px-3 py-2 text-white hover:text-cyan-400"
+            title="Experience"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="block px-3 py-2 text-white hover:text-cyan-400"
+            title="Projects"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 text-white hover:text-cyan-400"
+            title="Contact"
+            >Contact</a
+          >
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden min-h-screen flex items-center">
-        <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-10 filter blur-3xl"></div>
-        <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-10 filter blur-3xl"></div>
-        
-        <div class="flex flex-col md:flex-row items-center justify-between w-full">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 orbitron neon-text">
-                    <span class="text-cyan-400">RIFKI</span> ALFARES
-                </h1>
-                <h2 class="text-xl md:text-2xl mb-6 text-cyan-400 orbitron">
-                    PHYSICS OF ELECTRONICS & INSTRUMENTATION
-                </h2>
-                <p class="text-lg mb-8 max-w-lg">
-                    IoT enthusiast & developer passionate about creating efficient solutions through technology.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-6 py-3 bg-cyan-400 text-black font-semibold rounded-md hover:bg-cyan-300 transition-colors pulse">
-                        Contact Me
-                    </a>
-                    <a href="#projects" class="px-6 py-3 neon-border font-semibold rounded-md hover:bg-gray-800 transition-colors">
-                        View Projects
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center relative">
-                <div class="glass-card w-64 h-72 rounded-xl flex items-center justify-center floating group perspective transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-                    <!-- Front Side -->
-                    <div class="absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4">
-                        <div class="w-24 h-24 bg-cyan-400 rounded-full mx-auto mb-6 flex items-center justify-center">
-                            <i class="fas fa-atom text-4xl text-black"></i>
-                        </div>
-                        <p class="orbitron text-cyan-400 text-xl">IoT Developer</p>
-                        <p class="text-sm mt-2">"Everything must be efficient"</p>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 overflow-hidden rounded-xl">
-                        <img src="your-photo.jpg" alt="IoT Developer Photo" class="w-full h-full object-cover rounded-xl" />
-                    </div>
-                </div>
-            </div>
+    <section
+      class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden min-h-screen flex items-center"
+    >
+      <div
+        class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-10 filter blur-3xl"
+      ></div>
+      <div
+        class="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-10 filter blur-3xl"
+      ></div>
+
+      <div
+        class="flex flex-col md:flex-row items-center justify-between w-full"
+      >
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 orbitron neon-text">
+            <span class="text-cyan-400">RIFKI</span> ALFARES
+          </h1>
+          <h2 class="text-xl md:text-2xl mb-6 text-cyan-400 orbitron">
+            PHYSICS OF ELECTRONICS & INSTRUMENTATION
+          </h2>
+          <p class="text-lg mb-8 max-w-lg">
+            IoT enthusiast & developer passionate about creating efficient
+            solutions through technology.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#contact"
+              class="px-6 py-3 bg-cyan-400 text-black font-semibold rounded-md hover:bg-cyan-300 transition-colors pulse"
+            >
+              Contact Me
+            </a>
+            <a
+              href="#projects"
+              class="px-6 py-3 neon-border font-semibold rounded-md hover:bg-gray-800 transition-colors"
+            >
+              View Projects
+            </a>
+          </div>
         </div>
+        <div class="md:w-1/2 flex justify-center relative">
+          <div class="flip-card w-80 h-80">
+            <div class="flip-card-inner">
+              <!-- Front Side -->
+              <div
+                class="flip-card-front flex flex-col items-center justify-center p-6"
+              >
+                <div
+                  class="w-24 h-24 bg-cyan-400 rounded-full mx-auto mb-6 flex items-center justify-center"
+                >
+                  <i class="fas fa-atom text-4xl text-black"></i>
+                </div>
+                <p class="orbitron text-cyan-400 text-2xl mb-4">
+                  IoT Developer
+                </p>
+                <p class="text-lg text-center">
+                  "Everything must be efficient"
+                </p>
+              </div>
+              <!-- Back Side -->
+              <div class="flip-card-back">
+                <img src="public/foto_1.jpeg" alt="IoT Developer Photo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-card rounded-xl my-10 neon-border relative overflow-hidden">
-        <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"></div>
-        <div class="flex flex-col md:flex-row">
-            <div class="md:w-1/3 mb-8 md:mb-0">
-                <h2 class="text-3xl font-bold mb-6 orbitron neon-text">
-                    <span class="text-cyan-400">//</span> ABOUT ME
-                </h2>
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <i class="fas fa-map-marker-alt text-cyan-400 mt-1 mr-3"></i>
-                        <p>4th Mawar St. No. 11, Semarang City</p>
-                    </div>
-                    <div class="flex items-start">
-                        <i class="fas fa-envelope text-cyan-400 mt-1 mr-3"></i>
-                        <p>Alfarezt05@gmail.com</p>
-                    </div>
-                    <div class="flex items-start">
-                        <i class="fab fa-linkedin text-cyan-400 mt-1 mr-3"></i>
-                        <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="hover:text-cyan-400" title="LinkedIn Profile">linkedin.com/in/ralfarezt05</a>
-                    </div>
-                    <div class="flex items-start">
-                        <i class="fas fa-language text-cyan-400 mt-1 mr-3"></i>
-                        <p>Indonesia, English</p>
-                    </div>
-                </div>
+    <section
+      id="about"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-card rounded-xl my-10 neon-border relative overflow-hidden"
+    >
+      <div
+        class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"
+      ></div>
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/3 mb-8 md:mb-0">
+          <h2 class="text-3xl font-bold mb-6 orbitron neon-text">
+            <span class="text-cyan-400">//</span> ABOUT ME
+          </h2>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt text-cyan-400 mt-1 mr-3"></i>
+              <p>4th Mawar St. No. 11, Semarang City</p>
             </div>
-            <div class="md:w-2/3 md:pl-10">
-                <h3 class="text-xl font-semibold mb-4 orbitron text-cyan-400">SUMMARY</h3>
-                <p class="mb-6">
-                    I am Rifki Alfares, a fresh graduate from Universitas Diponegoro with a background in Electronics and Instrumentation Physics. I have a strong passion for the Internet of Things (IoT) and app or web development, and I am always eager to explore new technologies.
-                </p>
-                <p class="mb-6">
-                    Throughout my studies, I sharpened my technical skills while embracing teamwork as a key to achieving goals efficiently. Guided by the belief that everything should be done with precision and purpose, I value simplicity and effectiveness in every task I undertake.
-                </p>
-                <p class="font-semibold text-cyan-400">
-                    Philosophy: "Everything must be efficient"
-                </p>
+            <div class="flex items-start">
+              <i class="fas fa-envelope text-cyan-400 mt-1 mr-3"></i>
+              <p>Alfarezt05@gmail.com</p>
             </div>
+            <div class="flex items-start">
+              <i class="fab fa-linkedin text-cyan-400 mt-1 mr-3"></i>
+              <a
+                href="https://www.linkedin.com/in/ralfarezt05"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-cyan-400"
+                title="LinkedIn Profile"
+                >linkedin.com/in/ralfarezt05</a
+              >
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-language text-cyan-400 mt-1 mr-3"></i>
+              <p>Indonesia, English</p>
+            </div>
+          </div>
         </div>
+        <div class="md:w-2/3 md:pl-10">
+          <h3 class="text-xl font-semibold mb-4 orbitron text-cyan-400">
+            SUMMARY
+          </h3>
+          <p class="mb-6">
+            I am Rifki Alfares, a fresh graduate from Universitas Diponegoro
+            with a background in Electronics and Instrumentation Physics. I have
+            a strong passion for the Internet of Things (IoT) and app or web
+            development, and I am always eager to explore new technologies.
+          </p>
+          <p class="mb-6">
+            Throughout my studies, I sharpened my technical skills while
+            embracing teamwork as a key to achieving goals efficiently. Guided
+            by the belief that everything should be done with precision and
+            purpose, I value simplicity and effectiveness in every task I
+            undertake.
+          </p>
+          <p class="font-semibold text-cyan-400">
+            Philosophy: "Everything must be efficient"
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
-        <div class="absolute -left-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"></div>
-        <h2 class="text-3xl font-bold mb-12 text-center orbitron neon-text">
-            <span class="text-cyan-400">//</span> TECHNICAL SKILLS
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Prototyping & Design -->
-            <div class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                        <i class="fas fa-pencil-ruler text-cyan-400"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold orbitron">Prototyping & Design</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">SketchUp 3D Design</span>
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Prototyping Tools</span>
-                </div>
+    <section
+      id="skills"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden"
+    >
+      <div
+        class="absolute -left-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"
+      ></div>
+      <h2 class="text-3xl font-bold mb-12 text-center orbitron neon-text">
+        <span class="text-cyan-400">//</span> TECHNICAL SKILLS
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Prototyping & Design -->
+        <div
+          class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden"
+        >
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+            >
+              <i class="fas fa-pencil-ruler text-cyan-400"></i>
             </div>
-            
-            <!-- Electronics & Automation -->
-            <div class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                        <i class="fas fa-microchip text-cyan-400"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold orbitron">Electronics & Automation</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Industry Automation</span>
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">PLC</span>
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Microcontroller</span>
-                </div>
-            </div>
-            
-            <!-- Development -->
-            <div class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                        <i class="fas fa-code text-cyan-400"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold orbitron">Development</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Backend Dev</span>
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Frontend Dev</span>
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Utilization of AI</span>
-                </div>
-            </div>
-            
-            <!-- Cloud & Platforms -->
-            <div class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden">
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                        <i class="fas fa-cloud text-cyan-400"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold orbitron">Cloud & Platforms</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border">Google Cloud Platform</span>
-                </div>
-            </div>
+            <h3 class="text-xl font-semibold orbitron">Prototyping & Design</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >SketchUp 3D Design</span
+            >
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Prototyping Tools</span
+            >
+          </div>
         </div>
+
+        <!-- Electronics & Automation -->
+        <div
+          class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden"
+        >
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+            >
+              <i class="fas fa-microchip text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-semibold orbitron">
+              Electronics & Automation
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Industry Automation</span
+            >
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >PLC</span
+            >
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Microcontroller</span
+            >
+          </div>
+        </div>
+
+        <!-- Development -->
+        <div
+          class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden"
+        >
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+            >
+              <i class="fas fa-code text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-semibold orbitron">Development</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Backend Dev</span
+            >
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Frontend Dev</span
+            >
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Utilization of AI</span
+            >
+          </div>
+        </div>
+
+        <!-- Cloud & Platforms -->
+        <div
+          class="holographic-card glass-card p-6 rounded-xl neon-border hover:bg-gray-800 transition-colors relative overflow-hidden"
+        >
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+            >
+              <i class="fas fa-cloud text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-semibold orbitron">Cloud & Platforms</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm neon-border"
+              >Google Cloud Platform</span
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Experience & Education Section -->
-    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-card rounded-xl my-10 neon-border relative overflow-hidden">
-        <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"></div>
-        <h2 class="text-3xl font-bold mb-12 orbitron neon-text">
-            <span class="text-cyan-400">//</span> EXPERIENCE & EDUCATION
-        </h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Experience -->
-            <div>
-                <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">EXPERIENCE</h3>
-                
-                <div class="space-y-8 relative border-l-2 border-cyan-400 pl-8">
-                    <!-- BRIN Internship -->
-                    <div class="relative timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-lg">
-                            <h4 class="font-semibold text-lg">Intern at BRIN</h4>
-                            <p class="text-cyan-400 text-sm mb-2">Jan - Feb 2023</p>
-                            <p>Researching the manufacture of NMC Batteries</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Leadership -->
-                    <div class="relative timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-6 rounded-lg">
-                            <h4 class="font-semibold text-lg">Head of Research Field</h4>
-                            <p class="text-cyan-400 text-sm mb-2">Feb 2022 - Feb 2023</p>
-                            <p>UNDIP COSMOS Physics organization</p>
-                        </div>
-                    </div>
-                </div>
+    <section
+      id="experience"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-card rounded-xl my-10 neon-border relative overflow-hidden"
+    >
+      <div
+        class="absolute -right-20 -bottom-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"
+      ></div>
+      <h2 class="text-3xl font-bold mb-12 orbitron neon-text">
+        <span class="text-cyan-400">//</span> EXPERIENCE & EDUCATION
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Experience -->
+        <div>
+          <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">
+            EXPERIENCE
+          </h3>
+
+          <div class="space-y-8 relative border-l-2 border-cyan-400 pl-8">
+            <!-- BRIN Internship -->
+            <div class="relative timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card p-6 rounded-lg">
+                <h4 class="font-semibold text-lg">Intern at BRIN</h4>
+                <p class="text-cyan-400 text-sm mb-2">Jan - Feb 2023</p>
+                <p>Researching the manufacture of NMC Batteries</p>
+              </div>
             </div>
-            
-            <!-- Education -->
-            <div>
-                <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">EDUCATION</h3>
-                
-                <div class="glass-card p-6 rounded-lg">
-                    <h4 class="font-semibold text-lg">Physics of Electronics and Instrumentation</h4>
-                    <p class="text-cyan-400 text-sm mb-2">University of Diponegoro, Physics Cohort</p>
-                    <p class="mb-2">Bachelor of Science in Physics</p>
-                    <p class="text-sm">Aug 2020 - March 2025</p>
-                </div>
+
+            <!-- Leadership -->
+            <div class="relative timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card p-6 rounded-lg">
+                <h4 class="font-semibold text-lg">Head of Research Field</h4>
+                <p class="text-cyan-400 text-sm mb-2">Feb 2022 - Feb 2023</p>
+                <p>UNDIP COSMOS Physics organization</p>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Education -->
+        <div>
+          <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">
+            EDUCATION
+          </h3>
+
+          <div class="glass-card p-6 rounded-lg">
+            <h4 class="font-semibold text-lg">
+              Physics of Electronics and Instrumentation
+            </h4>
+            <p class="text-cyan-400 text-sm mb-2">
+              University of Diponegoro, Physics Cohort
+            </p>
+            <p class="mb-2">Bachelor of Science in Physics</p>
+            <p class="text-sm">Aug 2020 - March 2025</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
-        <div class="absolute -left-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"></div>
-        <h2 class="text-3xl font-bold mb-12 text-center orbitron neon-text">
-            <span class="text-cyan-400">//</span> PROJECTS
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Project 1 -->
-            <div class="holographic-card glass-card rounded-xl overflow-hidden neon-border hover:bg-gray-800 transition-colors group relative">
-                <div class="h-48 bg-gradient-to-r from-cyan-500 to-cyan-700 flex items-center justify-center">
-                    <i class="fas fa-battery-three-quarters text-6xl text-white opacity-80 group-hover:opacity-100 transition-opacity"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 orbitron">NMC Battery Research</h3>
-                    <p class="text-sm text-gray-300 mb-4">Research on the manufacture of Nickel Manganese Cobalt oxide batteries during BRIN internship</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">Electrochemistry</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">Materials Science</span>
-                    </div>
-                </div>
+    <section
+      id="projects"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden"
+    >
+      <div
+        class="absolute -left-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"
+      ></div>
+      <h2 class="text-3xl font-bold mb-12 text-center orbitron neon-text">
+        <span class="text-cyan-400">//</span> PROJECTS
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div
+          class="holographic-card glass-card rounded-xl overflow-hidden neon-border hover:bg-gray-800 transition-colors group relative"
+        >
+          <div
+            class="h-48 bg-gradient-to-r from-cyan-500 to-cyan-700 flex items-center justify-center"
+          >
+            <i
+              class="fas fa-battery-three-quarters text-6xl text-white opacity-80 group-hover:opacity-100 transition-opacity"
+            ></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 orbitron">
+              NMC Battery Research
+            </h3>
+            <p class="text-sm text-gray-300 mb-4">
+              Research on the manufacture of Nickel Manganese Cobalt oxide
+              batteries during BRIN internship
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >Electrochemistry</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >Materials Science</span
+              >
             </div>
-            
-            <!-- Project 2 -->
-            <div class="holographic-card glass-card rounded-xl overflow-hidden neon-border hover:bg-gray-800 transition-colors group relative">
-                <div class="h-48 bg-gradient-to-r from-cyan-500 to-cyan-700 flex items-center justify-center">
-                    <i class="fas fa-network-wired text-6xl text-white opacity-80 group-hover:opacity-100 transition-opacity"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 orbitron">IoT Automation System</h3>
-                    <p class="text-sm text-gray-300 mb-4">Industrial automation project utilizing PLC and microcontroller systems</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">PLC</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">Microcontroller</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">Automation</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="holographic-card glass-card rounded-xl overflow-hidden neon-border hover:bg-gray-800 transition-colors group relative">
-                <div class="h-48 bg-gradient-to-r from-cyan-500 to-cyan-700 flex items-center justify-center">
-                    <i class="fas fa-laptop-code text-6xl text-white opacity-80 group-hover:opacity-100 transition-opacity"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 orbitron">Web Development</h3>
-                    <p class="text-sm text-gray-300 mb-4">Various web development projects combining frontend and backend technologies</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">Frontend</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">Backend</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border">AI Integration</span>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Project 2 -->
+        <div
+          class="holographic-card glass-card rounded-xl overflow-hidden neon-border hover:bg-gray-800 transition-colors group relative"
+        >
+          <div
+            class="h-48 bg-gradient-to-r from-cyan-500 to-cyan-700 flex items-center justify-center"
+          >
+            <i
+              class="fas fa-network-wired text-6xl text-white opacity-80 group-hover:opacity-100 transition-opacity"
+            ></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 orbitron">
+              IoT Automation System
+            </h3>
+            <p class="text-sm text-gray-300 mb-4">
+              Industrial automation project utilizing PLC and microcontroller
+              systems
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >PLC</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >Microcontroller</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >Automation</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="holographic-card glass-card rounded-xl overflow-hidden neon-border hover:bg-gray-800 transition-colors group relative"
+        >
+          <div
+            class="h-48 bg-gradient-to-r from-cyan-500 to-cyan-700 flex items-center justify-center"
+          >
+            <i
+              class="fas fa-laptop-code text-6xl text-white opacity-80 group-hover:opacity-100 transition-opacity"
+            ></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 orbitron">Web Development</h3>
+            <p class="text-sm text-gray-300 mb-4">
+              Various web development projects combining frontend and backend
+              technologies
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >Frontend</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >Backend</span
+              >
+              <span
+                class="px-2 py-1 bg-gray-800 rounded-full text-xs neon-border"
+                >AI Integration</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-card rounded-xl my-10 neon-border relative overflow-hidden">
-        <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"></div>
-        <h2 class="text-3xl font-bold mb-12 text-center orbitron neon-text">
-            <span class="text-cyan-400">//</span> GET IN TOUCH
-        </h2>
-        
-        <div class="flex flex-col md:flex-row gap-10">
-            <div class="md:w-1/2">
-                <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">CONTACT INFO</h3>
-                
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                            <i class="fas fa-envelope text-cyan-400"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Email</h4>
-                            <p>Alfarezt05@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                            <i class="fab fa-linkedin-in text-cyan-400"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="hover:text-cyan-400" title="LinkedIn Profile">linkedin.com/in/ralfarezt05</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                            <i class="fas fa-map-marker-alt text-cyan-400"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Location</h4>
-                            <p>4th Mawar St. No. 11, Semarang City, Indonesia</p>
-                        </div>
-                    </div>
-                </div>
+    <section
+      id="contact"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-card rounded-xl my-10 neon-border relative overflow-hidden"
+    >
+      <div
+        class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen opacity-5 filter blur-3xl"
+      ></div>
+      <h2 class="text-3xl font-bold mb-12 text-center orbitron neon-text">
+        <span class="text-cyan-400">//</span> GET IN TOUCH
+      </h2>
+
+      <div class="flex flex-col md:flex-row gap-10">
+        <div class="md:w-1/2">
+          <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">
+            CONTACT INFO
+          </h3>
+
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-envelope text-cyan-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">Email</h4>
+                <p>Alfarezt05@gmail.com</p>
+              </div>
             </div>
-            
-            <div class="md:w-1/2">
-                <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">SEND A MESSAGE</h3>
-                
-                <form class="space-y-4">
-                    <div>
-                        <label for="name" class="block mb-1">Name</label>
-                        <input type="text" id="name" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400">
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block mb-1">Email</label>
-                        <input type="email" id="email" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400">
-                    </div>
-                    
-                    <div>
-                        <label for="message" class="block mb-1">Message</label>
-                        <textarea id="message" rows="4" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="px-6 py-3 bg-cyan-400 text-black font-semibold rounded-md hover:bg-cyan-300 transition-colors pulse">
-                        Send Message
-                    </button>
-                </form>
+
+            <div class="flex items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+              >
+                <i class="fab fa-linkedin-in text-cyan-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">LinkedIn</h4>
+                <a
+                  href="https://www.linkedin.com/in/ralfarezt05"
+                  target="_blank"
+                  rel="noopener"
+                  class="hover:text-cyan-400"
+                  title="LinkedIn Profile"
+                  >linkedin.com/in/ralfarezt05</a
+                >
+              </div>
             </div>
+
+            <div class="flex items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-map-marker-alt text-cyan-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">Location</h4>
+                <p>4th Mawar St. No. 11, Semarang City, Indonesia</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="md:w-1/2">
+          <h3 class="text-xl font-semibold mb-6 orbitron text-cyan-400">
+            SEND A MESSAGE
+          </h3>
+
+          <form class="space-y-4">
+            <div>
+              <label for="name" class="block mb-1">Name</label>
+              <input
+                type="text"
+                id="name"
+                class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block mb-1">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
+              />
+            </div>
+
+            <div>
+              <label for="message" class="block mb-1">Message</label>
+              <textarea
+                id="message"
+                rows="4"
+                class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="px-6 py-3 bg-cyan-400 text-black font-semibold rounded-md hover:bg-cyan-300 transition-colors pulse"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center glass-card rounded-t-xl">
-        <div class="flex justify-center space-x-6 mb-6">
-        <a href="mailto:Alfarezt05@gmail.com" class="text-gray-400 hover:text-cyan-400" title="Email">
-            <i class="fas fa-envelope text-xl"></i>
+    <footer
+      class="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center glass-card rounded-t-xl"
+    >
+      <div class="flex justify-center space-x-6 mb-6">
+        <a
+          href="mailto:Alfarezt05@gmail.com"
+          class="text-gray-400 hover:text-cyan-400"
+          title="Email"
+        >
+          <i class="fas fa-envelope text-xl"></i>
         </a>
-        <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="text-gray-400 hover:text-cyan-400" title="LinkedIn Profile">
-            <i class="fab fa-linkedin-in text-xl"></i>
+        <a
+          href="https://www.linkedin.com/in/ralfarezt05"
+          target="_blank"
+          rel="noopener"
+          class="text-gray-400 hover:text-cyan-400"
+          title="LinkedIn Profile"
+        >
+          <i class="fab fa-linkedin-in text-xl"></i>
         </a>
-        </div>
-        <p class="text-gray-500 text-sm">
-            © 2023 Rifki Alfares. All rights reserved.
-        </p>
+      </div>
+      <p class="text-gray-500 text-sm">
+        © 2023 Rifki Alfares. All rights reserved.
+      </p>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+      // Mobile menu toggle
+      const mobileMenuButton = document.querySelector(".mobile-menu-button");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
         });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
             });
+          }
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+      });
+
+      // Three.js 3D Background
+      const container = document.getElementById("threejs-container");
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
+
+      // Create floating geometric shapes
+      const geometry = new THREE.IcosahedronGeometry(1, 0);
+      const material = new THREE.MeshBasicMaterial({
+        color: 0x00fff7,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.2,
+      });
+
+      const shapes = [];
+      const count = 8;
+
+      for (let i = 0; i < count; i++) {
+        const shape = new THREE.Mesh(geometry, material);
+
+        // Random position
+        shape.position.x = Math.random() * 20 - 10;
+        shape.position.y = Math.random() * 20 - 10;
+        shape.position.z = Math.random() * 10 - 20;
+
+        // Random scale
+        const scale = Math.random() * 2 + 0.5;
+        shape.scale.set(scale, scale, scale);
+
+        // Random rotation speed
+        shape.userData = {
+          speed: {
+            x: Math.random() * 0.02 - 0.01,
+            y: Math.random() * 0.02 - 0.01,
+            z: Math.random() * 0.02 - 0.01,
+          },
+        };
+
+        scene.add(shape);
+        shapes.push(shape);
+      }
+
+      camera.position.z = 5;
+
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // Rotate shapes
+        shapes.forEach((shape) => {
+          shape.rotation.x += shape.userData.speed.x;
+          shape.rotation.y += shape.userData.speed.y;
+          shape.rotation.z += shape.userData.speed.z;
         });
-        
-        // Three.js 3D Background
-        const container = document.getElementById('threejs-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+
+      // Handle window resize
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
-        
-        // Create floating geometric shapes
-        const geometry = new THREE.IcosahedronGeometry(1, 0);
-        const material = new THREE.MeshBasicMaterial({ 
-            color: 0x00fff7,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.2
-        });
-        
-        const shapes = [];
-        const count = 8;
-        
-        for (let i = 0; i < count; i++) {
-            const shape = new THREE.Mesh(geometry, material);
-            
-            // Random position
-            shape.position.x = Math.random() * 20 - 10;
-            shape.position.y = Math.random() * 20 - 10;
-            shape.position.z = Math.random() * 10 - 20;
-            
-            // Random scale
-            const scale = Math.random() * 2 + 0.5;
-            shape.scale.set(scale, scale, scale);
-            
-            // Random rotation speed
-            shape.userData = {
-                speed: {
-                    x: Math.random() * 0.02 - 0.01,
-                    y: Math.random() * 0.02 - 0.01,
-                    z: Math.random() * 0.02 - 0.01
-                }
-            };
-            
-            scene.add(shape);
-            shapes.push(shape);
-        }
-        
-        camera.position.z = 5;
-        
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            // Rotate shapes
-            shapes.forEach(shape => {
-                shape.rotation.x += shape.userData.speed.x;
-                shape.rotation.y += shape.userData.speed.y;
-                shape.rotation.z += shape.userData.speed.z;
-            });
-            
-            renderer.render(scene, camera);
-        }
-        
-        animate();
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
