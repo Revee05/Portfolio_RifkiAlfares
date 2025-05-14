@@ -8,150 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        :root {
-            --primary: #00FFF7;
-            --secondary: #0F0F0F;
-            --text: #EEEEEE;
-        }
-        
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: var(--secondary);
-            color: var(--text);
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, .orbitron {
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .neon-text {
-            text-shadow: 0 0 8px rgba(0, 255, 247, 0.6);
-        }
-        
-        .neon-border {
-            border: 1px solid var(--primary);
-            box-shadow: 0 0 10px rgba(0, 255, 247, 0.5);
-        }
-        
-        .neon-border:hover {
-            box-shadow: 0 0 20px rgba(0, 255, 247, 0.8);
-        }
-        
-        .glow-on-hover:hover {
-            text-shadow: 0 0 15px rgba(0, 255, 247, 0.8);
-        }
-        
-        .glass-card {
-            background: rgba(15, 15, 15, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 247, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 255, 247, 0.1);
-        }
-        
-        .holographic-card {
-            background: linear-gradient(135deg, rgba(0, 255, 247, 0.1) 0%, rgba(15, 15, 15, 0.8) 50%, rgba(0, 255, 247, 0.1) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .holographic-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(0, 255, 247, 0) 0%,
-                rgba(0, 255, 247, 0) 45%,
-                rgba(0, 255, 247, 0.3) 50%,
-                rgba(0, 255, 247, 0) 55%,
-                rgba(0, 255, 247, 0) 100%
-            );
-            transform: rotate(30deg);
-            animation: holographic 6s linear infinite;
-        }
-        
-        @keyframes holographic {
-            0% { transform: rotate(30deg) translate(-30%, -30%); }
-            100% { transform: rotate(30deg) translate(30%, 30%); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 247, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 255, 247, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 247, 0); }
-        }
-        
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(0, 255, 247, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 247, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        
-        .hexagon {
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: var(--primary);
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -26px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary);
-            box-shadow: 0 0 10px rgba(0, 255, 247, 0.8);
-        }
-        
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        
-        .threejs-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
     <!-- 3D Background Elements -->
@@ -174,9 +31,9 @@
                     <a href="#contact" class="text-white hover:text-cyan-400 transition-colors glow-on-hover">Contact</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button">
-                        <i class="fas fa-bars text-white text-xl"></i>
-                    </button>
+                <button class="mobile-menu-button" title="Toggle mobile menu">
+                    <i class="fas fa-bars text-white text-xl"></i>
+                </button>
                 </div>
             </div>
         </div>
@@ -184,11 +41,11 @@
         <!-- Mobile menu -->
         <div class="mobile-menu hidden md:hidden bg-black bg-opacity-90">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 text-white hover:text-cyan-400">About</a>
-                <a href="#skills" class="block px-3 py-2 text-white hover:text-cyan-400">Skills</a>
-                <a href="#experience" class="block px-3 py-2 text-white hover:text-cyan-400">Experience</a>
-                <a href="#projects" class="block px-3 py-2 text-white hover:text-cyan-400">Projects</a>
-                <a href="#contact" class="block px-3 py-2 text-white hover:text-cyan-400">Contact</a>
+                    <a href="#about" class="block px-3 py-2 text-white hover:text-cyan-400" title="About">About</a>
+                    <a href="#skills" class="block px-3 py-2 text-white hover:text-cyan-400" title="Skills">Skills</a>
+                    <a href="#experience" class="block px-3 py-2 text-white hover:text-cyan-400" title="Experience">Experience</a>
+                    <a href="#projects" class="block px-3 py-2 text-white hover:text-cyan-400" title="Projects">Projects</a>
+                    <a href="#contact" class="block px-3 py-2 text-white hover:text-cyan-400" title="Contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -251,7 +108,7 @@
                     </div>
                     <div class="flex items-start">
                         <i class="fab fa-linkedin text-cyan-400 mt-1 mr-3"></i>
-                        <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" class="hover:text-cyan-400">linkedin.com/in/ralfarezt05</a>
+                        <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="hover:text-cyan-400" title="LinkedIn Profile">linkedin.com/in/ralfarezt05</a>
                     </div>
                     <div class="flex items-start">
                         <i class="fas fa-language text-cyan-400 mt-1 mr-3"></i>
@@ -469,15 +326,15 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                            <i class="fab fa-linkedin-in text-cyan-400"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" class="hover:text-cyan-400">linkedin.com/in/ralfarezt05</a>
-                        </div>
-                    </div>
+        <div class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
+                <i class="fab fa-linkedin-in text-cyan-400"></i>
+            </div>
+            <div>
+                <h4 class="font-semibold">LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="hover:text-cyan-400" title="LinkedIn Profile">linkedin.com/in/ralfarezt05</a>
+            </div>
+        </div>
                     
                     <div class="flex items-start">
                         <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
@@ -521,12 +378,12 @@
     <!-- Footer -->
     <footer class="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center glass-card rounded-t-xl">
         <div class="flex justify-center space-x-6 mb-6">
-            <a href="mailto:Alfarezt05@gmail.com" class="text-gray-400 hover:text-cyan-400">
-                <i class="fas fa-envelope text-xl"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" class="text-gray-400 hover:text-cyan-400">
-                <i class="fab fa-linkedin-in text-xl"></i>
-            </a>
+        <a href="mailto:Alfarezt05@gmail.com" class="text-gray-400 hover:text-cyan-400" title="Email">
+            <i class="fas fa-envelope text-xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="text-gray-400 hover:text-cyan-400" title="LinkedIn Profile">
+            <i class="fab fa-linkedin-in text-xl"></i>
+        </a>
         </div>
         <p class="text-gray-500 text-sm">
             © 2023 Rifki Alfares. All rights reserved.
