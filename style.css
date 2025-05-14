@@ -140,3 +140,46 @@ h1, h2, h3, h4, .orbitron {
     z-index: -1;
     opacity: 0.3;
 }
+
+/* Flip card styles */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.group:hover .group-hover\:rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.glass-card {
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease-in-out;
+}
+
+.glass-card:hover {
+  transform: rotateY(180deg);
+}
+
+.glass-card > div {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.glass-card > div.back {
+  transform: rotateY(180deg);
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-duration: 700ms;
+  transition-timing-function: ease-in-out;
+}

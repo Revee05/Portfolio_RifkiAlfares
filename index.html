@@ -76,13 +76,18 @@
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center relative">
-                <div class="glass-card w-64 h-72 rounded-xl flex items-center justify-center floating">
-                    <div class="text-center p-4 relative z-10">
+                <div class="glass-card w-64 h-72 rounded-xl flex items-center justify-center floating group perspective transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                    <!-- Front Side -->
+                    <div class="absolute w-full h-full backface-hidden flex flex-col items-center justify-center p-4">
                         <div class="w-24 h-24 bg-cyan-400 rounded-full mx-auto mb-6 flex items-center justify-center">
                             <i class="fas fa-atom text-4xl text-black"></i>
                         </div>
                         <p class="orbitron text-cyan-400 text-xl">IoT Developer</p>
                         <p class="text-sm mt-2">"Everything must be efficient"</p>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute w-full h-full backface-hidden rotate-y-180 overflow-hidden rounded-xl">
+                        <img src="your-photo.jpg" alt="IoT Developer Photo" class="w-full h-full object-cover rounded-xl" />
                     </div>
                 </div>
             </div>
@@ -326,15 +331,15 @@
                         </div>
                     </div>
                     
-        <div class="flex items-start">
-            <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
-                <i class="fab fa-linkedin-in text-cyan-400"></i>
-            </div>
-            <div>
-                <h4 class="font-semibold">LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="hover:text-cyan-400" title="LinkedIn Profile">linkedin.com/in/ralfarezt05</a>
-            </div>
-        </div>
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
+                            <i class="fab fa-linkedin-in text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/ralfarezt05" target="_blank" rel="noopener" class="hover:text-cyan-400" title="LinkedIn Profile">linkedin.com/in/ralfarezt05</a>
+                        </div>
+                    </div>
                     
                     <div class="flex items-start">
                         <div class="w-10 h-10 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center mr-4">
