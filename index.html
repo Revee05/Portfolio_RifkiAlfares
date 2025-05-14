@@ -142,7 +142,7 @@
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center relative">
-          <div class="flip-card w-80 h-80 floating">
+          <div class="flip-card w-80 h-80 floating" id="flip-card">
             <div class="flip-card-inner">
               <!-- Front Side -->
               <div
@@ -166,6 +166,13 @@
               </div>
             </div>
           </div>
+          <script>
+            // Add tap/click event listener for mobile flip-card
+            const flipCard = document.getElementById('flip-card');
+            flipCard.addEventListener('click', () => {
+              flipCard.querySelector('.flip-card-inner').classList.toggle('flipped');
+            });
+          </script>
         </div>
       </div>
     </section>
