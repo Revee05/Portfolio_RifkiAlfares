@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rifki Alfares | Futuristic Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -774,4 +768,28 @@
       });
     </script>
   </body>
+</html>
+
+<script>
+  async function loadComponent(containerId, componentPath) {
+    try {
+      const response = await fetch(componentPath);
+      const html = await response.text();
+      document.getElementById(containerId).innerHTML = html;
+    } catch (error) {
+      console.error(`Error loading component ${componentPath}:`, error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadComponent('nav-container', 'components/nav.html');
+    await loadComponent('hero-container', 'components/hero.html');
+    await loadComponent('about-container', 'components/about.html');
+    await loadComponent('skills-container', 'components/skills.html');
+    await loadComponent('experience-container', 'components/experience.html');
+    await loadComponent('projects-container', 'components/projects.html');
+    await loadComponent('contact-container', 'components/contact.html');
+    await loadComponent('footer-container', 'components/footer.html');
+  });
+</script>
 </html>

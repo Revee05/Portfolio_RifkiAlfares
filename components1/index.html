@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifki Alfares | Portfolio</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="min-h-screen">
+    <!-- 3D Background Elements -->
+    <div id="threejs-container" class="threejs-container"></div>
+
+    <!-- Component Containers -->
+    <div id="nav-container"></div>
+    <div id="hero-container"></div>
+    <div id="about-container"></div>
+    <div id="skills-container"></div>
+    <div id="experience-container"></div>
+    <div id="projects-container"></div>
+    <div id="contact-container"></div>
+    <div id="footer-container"></div>
+
+    <!-- Component Loading Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const components = [
+          { id: 'nav-container', path: 'nav.html' },
+          { id: 'hero-container', path: 'hero.html' },
+          { id: 'about-container', path: 'about.html' },
+          { id: 'skills-container', path: 'skills.html' },
+          { id: 'experience-container', path: 'experience.html' },
+          { id: 'projects-container', path: 'projects.html' },
+          { id: 'contact-container', path: 'contact.html' },
+          { id: 'footer-container', path: 'footer.html' }
+        ];
+
+        components.forEach(component => {
+          fetch(component.path)
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById(component.id).innerHTML = html;
+            })
+            .catch(error => console.error('Error loading component:', error));
+        });
+      });
+    </script>
+  </body>
+</html>
