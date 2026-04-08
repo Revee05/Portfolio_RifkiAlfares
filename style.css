@@ -116,6 +116,13 @@ h1, h2, h3, h4, .orbitron {
     );
     transform: rotate(30deg);
     animation: holographic 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.holographic-card > * {
+    position: relative;
+    z-index: 2;
 }
 
 /* Animations */
@@ -197,3 +204,23 @@ h1, h2, h3, h4, .orbitron {
     z-index: -1;
     opacity: 0.3;
 }
+
+/* Utilities */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.glass-card {
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

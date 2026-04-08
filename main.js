@@ -1,156 +1,188 @@
 async function loadComponent(elementId, componentPath) {
-    try {
-        const response = await fetch(componentPath);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const html = await response.text();
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.innerHTML = html;
-            // Execute scripts in the component if any
-            const scripts = element.querySelectorAll('script');
-            scripts.forEach(script => {
-                const newScript = document.createElement('script');
-                if (script.src) {
-                    newScript.src = script.src;
-                } else {
-                    newScript.textContent = script.textContent;
-                }
-                document.body.appendChild(newScript);
-                script.remove();
-            });
+  try {
+    const response = await fetch(componentPath);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const html = await response.text();
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.innerHTML = html;
+      // Execute scripts in the component if any
+      const scripts = element.querySelectorAll("script");
+      scripts.forEach((script) => {
+        const newScript = document.createElement("script");
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.textContent = script.textContent;
         }
-    } catch (error) {
-        console.error(`Error loading component ${componentPath}:`, error);
+        document.body.appendChild(newScript);
+        script.remove();
+      });
     }
+  } catch (error) {
+    console.error(`Error loading component ${componentPath}:`, error);
+  }
 }
 
-// Initialize all features once components are loaded
+// Global initialization
 function initializeFeatures() {
-    // Mobile menu toggle
-    const mobileMenuButton = document.querySelector(".mobile-menu-button");
-    const mobileMenu = document.querySelector(".mobile-menu");
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector(".mobile-menu-button");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll(".mobile-menu a").forEach((link) => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.add("hidden");
-            });
-        });
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href");
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: "smooth",
-                });
-            }
-        });
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
     });
 
-    // Initialize 3D Background (if Three.js is loaded)
-    if (typeof THREE !== 'undefined') {
-        initThreeJS();
+    // Close mobile menu when clicking a link
+    document.querySelectorAll(".mobile-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
+
+  // Scroll effect for navbar transparency
+  const nav = document.getElementById("main-nav");
+  const updateNav = () => {
+    if (window.scrollY > 50) {
+      nav.classList.add("bg-black", "bg-opacity-80", "backdrop-blur-sm");
+    } else {
+      nav.classList.remove("bg-black", "bg-opacity-80", "backdrop-blur-sm");
     }
+  };
+
+
+  if (nav) {
+    window.addEventListener("scroll", updateNav);
+    updateNav(); // Initial check
+  }
+
+
+  // Smooth scrolling only for local hashes
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      // Only prevent default and smooth scroll if it's a local hash and the element exists
+      if (href.startsWith("#")) {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          e.preventDefault();
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+  });
+
+  // Initialize 3D Background (if Three.js is loaded)
+  if (typeof THREE !== "undefined") {
+    initThreeJS();
+  }
 }
 
 function initThreeJS() {
-    const container = document.getElementById("threejs-container");
-    if (!container) return;
-    
-    // Clear previous if any
-    container.innerHTML = '';
+  const container = document.getElementById("threejs-container");
+  if (!container) return;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    );
-    const renderer = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true,
+  // Clear previous if any
+  container.innerHTML = "";
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000,
+  );
+  const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true,
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  const geometry = new THREE.IcosahedronGeometry(1, 0);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0x00fff7,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.2,
+  });
+
+  const shapes = [];
+  const count = 8;
+
+  for (let i = 0; i < count; i++) {
+    const shape = new THREE.Mesh(geometry, material);
+    shape.position.x = Math.random() * 20 - 10;
+    shape.position.y = Math.random() * 20 - 10;
+    shape.position.z = Math.random() * 10 - 20;
+    const scale = Math.random() * 2 + 0.5;
+    shape.scale.set(scale, scale, scale);
+    shape.userData = {
+      speed: {
+        x: Math.random() * 0.02 - 0.01,
+        y: Math.random() * 0.02 - 0.01,
+        z: Math.random() * 0.02 - 0.01,
+      },
+    };
+    scene.add(shape);
+    shapes.push(shape);
+  }
+
+  camera.position.z = 5;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    shapes.forEach((shape) => {
+      shape.rotation.x += shape.userData.speed.x;
+      shape.rotation.y += shape.userData.speed.y;
+      shape.rotation.z += shape.userData.speed.z;
     });
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    container.appendChild(renderer.domElement);
-
-    const geometry = new THREE.IcosahedronGeometry(1, 0);
-    const material = new THREE.MeshBasicMaterial({
-        color: 0x00fff7,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.2,
-    });
-
-    const shapes = [];
-    const count = 8;
-
-    for (let i = 0; i < count; i++) {
-        const shape = new THREE.Mesh(geometry, material);
-        shape.position.x = Math.random() * 20 - 10;
-        shape.position.y = Math.random() * 20 - 10;
-        shape.position.z = Math.random() * 10 - 20;
-        const scale = Math.random() * 2 + 0.5;
-        shape.scale.set(scale, scale, scale);
-        shape.userData = {
-            speed: {
-                x: Math.random() * 0.02 - 0.01,
-                y: Math.random() * 0.02 - 0.01,
-                z: Math.random() * 0.02 - 0.01,
-            },
-        };
-        scene.add(shape);
-        shapes.push(shape);
-    }
-
-    camera.position.z = 5;
-
-    function animate() {
-        requestAnimationFrame(animate);
-        shapes.forEach((shape) => {
-            shape.rotation.x += shape.userData.speed.x;
-            shape.rotation.y += shape.userData.speed.y;
-            shape.rotation.z += shape.userData.speed.z;
-        });
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+  });
 }
 
 // Load all components sequentially then initialize
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Only auto-load if we are on the main index page (has projects-component)
+  const isMainPage = document.getElementById("projects-component");
+
+  if (isMainPage) {
     const components = [
-        { id: 'nav-component', path: 'components/nav.html' },
-        { id: 'hero-component', path: 'components/hero.html' },
-        { id: 'about-component', path: 'components/about.html' },
-        { id: 'skills-component', path: 'components/skills.html' },
-        { id: 'experience-component', path: 'components/experience.html' },
-        { id: 'projects-component', path: 'components/projects.html' },
-        { id: 'contact-component', path: 'components/contact.html' },
-        { id: 'footer-component', path: 'components/footer.html' }
+      { id: "nav-component", path: "components/nav.html" },
+      { id: "hero-component", path: "components/hero.html" },
+      { id: "about-component", path: "components/about.html" },
+      { id: "skills-component", path: "components/skills.html" },
+      { id: "experience-component", path: "components/experience.html" },
+      { id: "projects-component", path: "components/projects.html" },
+      { id: "contact-component", path: "components/contact.html" },
+      { id: "footer-component", path: "components/footer.html" },
     ];
 
-    // Load components in order or in parallel?
-    // Parallel is faster, but order might matter if they depend on each other (some don't here).
-    await Promise.all(components.map(comp => loadComponent(comp.id, comp.path)));
-    
+    await Promise.all(
+      components.map((comp) => loadComponent(comp.id, comp.path)),
+    );
     initializeFeatures();
+  } else {
+    // Just initialize features (like ThreeJS) if they are manually loaded
+    initializeFeatures();
+  }
 });
+
+window.initializeFeatures = initializeFeatures;
+window.initThreeJS = initThreeJS;
+window.loadComponent = loadComponent;

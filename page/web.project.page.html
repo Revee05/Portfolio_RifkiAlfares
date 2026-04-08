@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Projects | Rifki Alfares</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../main.js" defer></script>
+  </head>
+  <body class="min-h-screen bg-[#0F0F0F] text-[#EEEEEE] font-['Rajdhani']">
+    <!-- 3D Background Elements -->
+    <div id="threejs-container" class="threejs-container"></div>
+
+    <!-- Navigation (loaded via JS if needed, or static here for reliability) -->
+    <div id="nav-component"></div>
+
+    <section
+      id="web-projects"
+      class="py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10"
+    >
+      <!-- Back button -->
+      <div class="mb-12 flex justify-start">
+        <a
+          href="../index.html"
+          class="flex items-center gap-2 px-4 py-2 border border-cyan-400/30 text-cyan-400 orbitron text-xs hover:border-cyan-400 hover:bg-cyan-400/10 transition-all rounded-lg group"
+        >
+          <i
+            class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"
+          ></i>
+          RETURN_TO_BASE_OPS
+        </a>
+      </div>
+
+      <!-- Content -->
+      <div class="text-center mb-16 relative">
+        <h1 class="text-4xl md:text-6xl font-bold orbitron neon-text mb-4">
+          <span class="text-cyan-400">//</span> WEB DEVELOPMENT
+          <span class="text-cyan-400">_</span>
+        </h1>
+        <p
+          class="text-lg text-gray-400 max-w-2xl mx-auto rajdhani tracking-widest uppercase"
+        >
+          Exploring the digital frontier through innovative web solutions and
+          futuristic interfaces.
+        </p>
+        <div class="h-1 w-24 bg-cyan-400 mx-auto mt-6 neon-border"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1: E-Commerce Nexus -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/ecommerce_nexus.png"
+              alt="E-Commerce Project"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6 relative">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              Nexus Storefront
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              A high-performance e-commerce platform built with Next.js 14 and
+              Stripe integration.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >React</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Tailwind</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: AI Dashboard -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/ai_dashboard.png"
+              alt="Analytics Dashboard"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              Synapse Data Viz
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              Real-time data visualization dashboard featuring Gemini AI
+              insights.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Node.js</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Chart.js</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Portfolio Genesis -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/portfolio.png"
+              alt="Portfolio"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              Genesis Portfolio
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              The current portfolio site, showcasing modular architecture and
+              Three.js background.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Three.js</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >GSAP</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Cloud Storage Alpha -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/cloud_storage.png"
+              alt="Cloud Storage"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              Aether Cloud
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              Decentralized-style cloud storage solution with encryption.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Firebase</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >React</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Task Management -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/tasks.png"
+              alt="Task App"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              Quantum Tasks
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              Task management tool with real-time multi-user sync.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Socket.io</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Vue.js</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Crypto Tracker -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/crypto.png"
+              alt="Crypto Tracker"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              BitPulse
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              Cryptocurrency price aggregator with live API feeds.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >API Feed</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Svelte</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Project 7: Laravel fullstack -->
+        <div
+          class="holographic-card glass-card rounded-2xl overflow-hidden neon-border group cursor-pointer transition-all hover:-translate-y-2"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+            ></div>
+            <img
+              src="../public/projects/rasanyalelangkarya.webp"
+              alt="Crypto Tracker"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold orbitron group-hover:text-cyan-400 transition-colors mb-2"
+            >
+              Laravel Fullstack
+            </h3>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+              Auction integrated with payment gateway + E-Commerce <br />
+              https://rasanyalelangkarya.com
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Laravel</span
+              >
+              <span
+                class="text-[10px] px-2 py-1 bg-cyan-900/30 text-cyan-400 rounded-md border border-cyan-400/30"
+                >Tailwind</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-component"></div>
+
+    <script>
+      // Load shared components and initialize ThreeJS
+      document.addEventListener("DOMContentLoaded", async () => {
+        // Load nav and footer components manually since we are in a subfolder
+        const loadPageComp = async (id, path) => {
+          const res = await fetch(path);
+          const html = await res.text();
+          document.getElementById(id).innerHTML = html;
+        };
+
+        await loadPageComp("nav-component", "../components/nav.html");
+        await loadPageComp("footer-component", "../components/footer.html");
+
+        // Fix nav links to work from subfolder
+        document.querySelectorAll("#nav-component a").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href.startsWith("#")) {
+            link.setAttribute("href", "../index.html" + href);
+          }
+        });
+
+        // Initialize 3D effects and site features (like nav scroll)
+        if (window.initializeFeatures) {
+          window.initializeFeatures();
+        }
+      });
+    </script>
+  </body>
+</html>
